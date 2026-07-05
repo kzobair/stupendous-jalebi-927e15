@@ -22,7 +22,7 @@ const products: Array<Product> = [
   },
   {
     id: 2,
-    name: 'Heavy-Duty washed Denim Jackets',
+    name: 'Heavy-Duty washed Denim Shirts',
     category: 'jackets',
     image: '/assets/optimized/Gemini_Generated_Image_w7w0zdw7w0zdw7w0.jpg',
     description: 'Rugged yet refined denim jackets built with double-needle chain stitching, heavy-duty metal buttons, and customized wash treatments (enzyme wash, stone wash, bleaching). Fully compliant with global physical stretch and pull tests.',
