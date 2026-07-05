@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="100%" height="100%">
+  <defs>
+    <linearGradient id="stripeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0284c7;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0369a1;stop-opacity:1" />
+    </linearGradient>
+    <pattern id="stripes" width="20" height="20" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+      <line x1="0" y1="0" x2="0" y2="20" stroke="#bae6fd" stroke-width="4" />
+    </pattern>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="100%" height="100%" fill="#fafafa"/>
+  
+  <!-- Hanger -->
+  <path d="M160,110 C160,80 240,80 240,110 C240,120 230,125 200,125 C170,125 160,120 160,110 Z" fill="none" stroke="#d1d5db" stroke-width="4"/>
+  <path d="M110,135 L200,125 L290,135" fill="none" stroke="#9ca3af" stroke-width="6" stroke-linecap="round"/>
+  
+  <!-- Shirt Body Base -->
+  <path d="M130,132 L150,190 L120,240 L150,350 L250,350 L280,240 L250,190 L270,132 L200,145 Z" fill="url(#stripeGrad)"/>
+  
+  <!-- Striped Pattern Overlay -->
+  <path d="M130,132 L150,190 L120,240 L150,350 L250,350 L280,240 L250,190 L270,132 L200,145 Z" fill="url(#stripes)" opacity="0.4"/>
+  
+  <!-- Collar -->
+  <path d="M170,132 L200,165 L230,132 L200,145 Z" fill="#0c4a6e"/>
+  
+  <!-- Elegant Title -->
+  <text x="200" y="380" font-family="system-ui, sans-serif" font-size="16" font-weight="600" fill="#0369a1" text-anchor="middle">PREMIUM STRIPED FORMAL</text>
+</svg>

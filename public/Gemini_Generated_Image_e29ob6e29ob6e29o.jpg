@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="100%" height="100%">
+  <defs>
+    <linearGradient id="shirtGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1e3a8a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0f172a;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="denimGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#2563eb;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1d4ed8;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f59e0b;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#b45309;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="patternGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#475569;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#334155;stop-opacity:1" />
+    </linearGradient>
+    <pattern id="stripes" width="20" height="20" patternUnits="userSpaceOnUse">
+      <line x1="0" y1="0" x2="0" y2="20" stroke="#94a3b8" stroke-width="2" />
+    </pattern>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="100%" height="100%" fill="#f8fafc"/>
+  
+  <!-- Hanger -->
+  <path d="M160,110 C160,80 240,80 240,110 C240,120 230,125 200,125 C170,125 160,120 160,110 Z" fill="none" stroke="#d1d5db" stroke-width="4"/>
+  <path d="M110,135 L200,125 L290,135" fill="none" stroke="#9ca3af" stroke-width="6" stroke-linecap="round"/>
+  
+  <!-- Shirt Body -->
+  <path d="M130,132 L150,190 L120,240 L150,350 L250,350 L280,240 L250,190 L270,132 L200,145 Z" fill="url(#shirtGrad)"/>
+  
+  <!-- Collar -->
+  <path d="M170,132 L200,165 L230,132 L200,145 Z" fill="#0f172a"/>
+  
+  <!-- Pocket -->
+  <path d="M155,200 L185,200 L185,230 L170,245 L155,230 Z" fill="#1e293b" opacity="0.5"/>
+  
+  <!-- Elegant Title -->
+  <text x="200" y="380" font-family="system-ui, sans-serif" font-size="16" font-weight="600" fill="#1e293b" text-anchor="middle">PREMIUM SHIRT SELECTION</text>
+</svg>
