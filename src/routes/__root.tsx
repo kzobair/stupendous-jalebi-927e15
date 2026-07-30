@@ -21,26 +21,23 @@ export const Route = createRootRoute({
 })
 
 function RootDocument({ children }: { children: React.ReactNode }) {
-  const handleScroll = (id: string) => {
-    const el = document.getElementById(id)
-    if (el) {
-      el.scrollIntoView({ behavior: 'smooth' })
-    }
-  }
-
   return (
     <html lang="en">
       <head>
         <HeadContent />
       </head>
-      <body className="font-sans antialiased text-slate-900 bg-slate-50 min-h-screen flex flex-col">
+      <body className="font-sans antialiased text-slate-600 bg-slate-50 min-h-screen flex flex-col">
         {/* Professional Sticky Navigation Header */}
         <header className="sticky top-0 z-50 bg-slate-900/95 backdrop-blur-md border-b border-slate-800 py-4 px-6 md:px-12 flex items-center justify-between text-white">
           <div className="flex items-center gap-8">
             <Link to="/" className="flex items-center gap-3">
-              <span className="w-10 h-10 rounded-lg bg-amber-500 flex items-center justify-center text-slate-950 font-black text-lg tracking-tighter">
-                OF
-              </span>
+              <img
+                src="/assets/orient-logo.webp"
+                alt="Oriental Fashion Ltd."
+                width="480"
+                height="379"
+                className="w-14 h-11 rounded-lg bg-white object-contain p-1 shadow-sm"
+              />
               <div className="flex flex-col">
                 <span className="font-black text-base md:text-lg tracking-tight text-white leading-tight">
                   ORIENTAL FASHION LTD.
@@ -97,9 +94,14 @@ function RootDocument({ children }: { children: React.ReactNode }) {
           <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12 text-left">
             <div className="md:col-span-2 flex flex-col gap-4">
               <div className="flex items-center gap-3">
-                <span className="w-8 h-8 rounded bg-amber-500 flex items-center justify-center text-slate-950 font-black text-sm">
-                  OF
-                </span>
+                <img
+                  src="/assets/orient-logo.webp"
+                  alt=""
+                  width="480"
+                  height="379"
+                  loading="lazy"
+                  className="w-12 h-10 rounded-md bg-white object-contain p-1"
+                />
                 <span className="font-bold text-white tracking-tight text-lg">
                   ORIENTAL FASHION LTD.
                 </span>

@@ -30,7 +30,7 @@ export function ProductAIAssistant() {
       if (q.includes('about') || q.includes('who') || q.includes('history') || q.includes('establish') || q.includes('year')) {
         reply = "Oriental Fashion Ltd is a world-class Ready-Made Garments (RMG) Manufacturer & Exporter established in 2011. We operate a highly efficient factory space of 54,000 sq ft with around 500 dedicated, skilled employees in Savar, Dhaka, Bangladesh."
       } else if (q.includes('machin') || q.includes('equipment') || q.includes('capacity') || q.includes('count') || q.includes('boiler') || q.includes('generator')) {
-        reply = "We operate a comprehensive fleet of 320 high-performance machines primarily supplied by industry-leading makers in Japan, Taiwan, and China. This includes 122 Plain Machines (106 auto, 16 manual), 63 Overlocks, 34 Flatlocks, 15 Button Stitches, 13 Button Holes, advanced big fusing machines, fabric inspection units, and safety metal detector machines. We also run dual boilers and 100 KV generators to ensure uninterrupted operations."
+        reply = "We operate a comprehensive fleet of 431 machines. This includes 175 plain machines (159 auto and 16 manual), 74 overlocks, 34 flatlocks, 18 button-hole machines, 17 button-stitch machines, cutting and fusing equipment, fabric inspection and metal detection units, plus boilers, compressors, and three generators supporting continuous production."
       } else if (q.includes('layout') || q.includes('floor') || q.includes('building') || q.includes('map') || q.includes('where')) {
         reply = "Our factory features a carefully approved 6-story building layout:\n\n• Ground Floor: Store & Bonded Warehouse\n• 1st Floor: Finishing Section\n• 2nd & 3rd Floors: Primary Sewing Sections\n• 4th Floor: Office room, Inspection room, and 2 additional Sewing lines\n• 5th Floor: Cutting Section, Sample Room, CAD, and Fusing Section\n• 6th (Top) Floor: Staff Dining and Prayer facilities."
       } else if (q.includes('product') || q.includes('manufacture') || q.includes('garment') || q.includes('make') || q.includes('cloth') || q.includes('shirt') || q.includes('jacket') || q.includes('polo')) {
@@ -42,7 +42,7 @@ export function ProductAIAssistant() {
       } else if (q.includes('buy') || q.includes('checkout') || q.includes('price') || q.includes('order')) {
         reply = "As an industrial RMG manufacturer, we primarily cater to bulk B2B export orders. Our order quantities and pricing are customized based on design specifications, fabrics, and quantities. To get a custom quotation, please fill out our 'Inquire Now' contact form at the bottom of the page, and our merchandising team will get back to you within 24 hours!"
       } else {
-        reply = "Thank you for your interest! I'm here to provide accurate details on Oriental Fashion Ltd's manufacturing capacity (320+ machines), our 54,000 sq ft factory layout, compliance standards, and product options. Let me know if you would like factory details or contact information!"
+        reply = "Thank you for your interest! I'm here to provide accurate details on Oriental Fashion Ltd's manufacturing capacity (431 machines), our 54,000 sq ft factory layout, compliance standards, and product options. Let me know if you would like factory details or contact information!"
       }
 
       setMessages(prev => [...prev, { sender: 'assistant', text: reply }])
