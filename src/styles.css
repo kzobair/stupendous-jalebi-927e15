@@ -1,9 +1,66 @@
 @import "tailwindcss" source("../");
 
+:root {
+  --site-background: #f4f9ff;
+  --site-surface: #ffffff;
+  --site-royal: #4169e1;
+  --site-icy: #90e0ef;
+  --site-text: #1a233a;
+}
+
+@theme {
+  --color-slate-50: var(--site-background);
+  --color-slate-100: var(--site-background);
+  --color-slate-200: var(--site-icy);
+  --color-slate-300: var(--site-background);
+  --color-slate-400: var(--site-text);
+  --color-slate-500: var(--site-text);
+  --color-slate-600: var(--site-text);
+  --color-slate-700: var(--site-royal);
+  --color-slate-800: var(--site-icy);
+  --color-slate-850: var(--site-icy);
+  --color-slate-900: var(--site-royal);
+  --color-slate-950: var(--site-text);
+  --color-amber-100: var(--site-background);
+  --color-amber-300: var(--site-icy);
+  --color-amber-400: var(--site-icy);
+  --color-amber-500: var(--site-icy);
+  --color-amber-600: var(--site-royal);
+}
+
 body {
   margin: 0;
+  background: var(--site-background);
+  color: var(--site-text);
   font-family: system-ui, -apple-system, sans-serif;
   -webkit-font-smoothing: antialiased;
+}
+
+.bg-slate-900 .text-slate-400,
+.bg-slate-900 .text-slate-500,
+.bg-slate-950 .text-slate-400,
+.bg-slate-950 .text-slate-500 {
+  color: var(--site-background);
+}
+
+.hero-video {
+  opacity: 0.58;
+  pointer-events: none;
+}
+
+:focus-visible {
+  outline: 3px solid var(--site-icy);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .hero-video {
+    display: none;
+  }
 }
 
 code {

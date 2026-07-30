@@ -22,22 +22,46 @@ function FactoryIndex() {
 
   // Grouped Machinery Data for Display
   const machinery = [
-    { name: 'Plain Sewing Machines (Auto)', qty: 106, category: 'Sewing' },
-    { name: 'Overlock - 4 Thread / 5 Thread', qty: 63, category: 'Sewing' },
-    { name: 'Flat Lock Machines', qty: 34, category: 'Sewing' },
     { name: 'Plain Sewing Machines (Manual)', qty: 16, category: 'Sewing' },
-    { name: 'Button Stitch Machines', qty: 15, category: 'Button/Finishing' },
-    { name: 'Button Hole Machines', qty: 13, category: 'Button/Finishing' },
-    { name: 'Vertical Cutter / Cutting Machines', qty: 16, category: 'Cutting' },
-    { name: 'Two Needle / Chain Stitch / Kansai', qty: 17, category: 'Sewing' },
-    { name: 'Collar/Cuff Forming & Turning Units', qty: 7, category: 'Specialized' },
-    { name: 'Fusing Machine (Big & Box Placket)', qty: 3, category: 'Specialized' },
-    { name: 'Pocket & Placket Creasing Machines', qty: 2, category: 'Specialized' },
-    { name: 'Metal Detector Unit', qty: 1, category: 'Compliance/Quality' },
+    { name: 'Plain Sewing Machines (Auto)', qty: 159, category: 'Sewing' },
+    { name: 'Overlock - 4 Thread', qty: 48, category: 'Sewing' },
+    { name: 'Overlock - 5 Thread', qty: 26, category: 'Sewing' },
+    { name: 'Flat Lock Machines', qty: 34, category: 'Sewing' },
+    { name: 'Vertical Cutting Machines', qty: 20, category: 'Cutting' },
+    { name: 'Chain Stitch Machines', qty: 6, category: 'Sewing' },
+    { name: 'Two Needle Machines', qty: 8, category: 'Sewing' },
+    { name: 'Feed of the Arm Machines', qty: 9, category: 'Sewing' },
+    { name: 'Kansai Machines', qty: 4, category: 'Sewing' },
+    { name: 'Button Hole Machines', qty: 18, category: 'Sewing' },
+    { name: 'Button Stitch Machines', qty: 17, category: 'Sewing' },
+    { name: 'AMS Velcro Machine', qty: 1, category: 'Specialized' },
+    { name: 'Bartack Machines', qty: 5, category: 'Sewing' },
+    { name: 'Rib Cutters', qty: 2, category: 'Cutting' },
+    { name: 'Snap Button Machines', qty: 3, category: 'Sewing' },
+    { name: 'Fusing Machine (Big)', qty: 1, category: 'Fusing' },
+    { name: 'Fusing Machine', qty: 1, category: 'Fusing' },
+    { name: 'Band Knife Machine', qty: 1, category: 'Cutting' },
+    { name: 'Box Placket Fusing Machine', qty: 1, category: 'Fusing' },
+    { name: 'Bottom Hem Machines', qty: 6, category: 'Sewing' },
+    { name: 'Box Placket Machines', qty: 2, category: 'Specialized' },
+    { name: 'Button Mark Machine', qty: 1, category: 'Specialized' },
+    { name: 'Pocket Creasing Machine', qty: 1, category: 'Specialized' },
+    { name: 'Placket Creasing Machine', qty: 1, category: 'Specialized' },
+    { name: 'Collar Forming Machine', qty: 1, category: 'Specialized' },
+    { name: 'Cuff Forming Machine', qty: 1, category: 'Specialized' },
+    { name: 'Collar Turning Machines', qty: 2, category: 'Specialized' },
     { name: 'Fabric Inspection Machine', qty: 1, category: 'Compliance/Quality' },
-    { name: 'Industrial Boilers (60kg / 150kg)', qty: 2, category: 'Utility' },
-    { name: 'Power Generators (100 KV)', qty: 2, category: 'Utility' },
-    { name: 'Fire Pump (750 GPM, 11 bar)', qty: 1, category: 'Safety/Compliance' },
+    { name: 'Metal Detector Machine', qty: 1, category: 'Compliance/Quality' },
+    { name: 'Cutting Machines', qty: 6, category: 'Cutting' },
+    { name: 'Generators (100 kV)', qty: 2, category: 'Utility' },
+    { name: 'Generator (530 kV)', qty: 1, category: 'Utility' },
+    { name: 'Boiler (60 kg)', qty: 1, category: 'Utility' },
+    { name: 'Boiler (150 kg)', qty: 1, category: 'Utility' },
+    { name: 'Mini Boilers (11 kg)', qty: 14, category: 'Utility' },
+    { name: 'Compressors', qty: 3, category: 'Utility' },
+    { name: 'Ricon Machine', qty: 1, category: 'Specialized' },
+    { name: 'Thread Sucker Machine', qty: 1, category: 'Compliance/Quality' },
+    { name: 'Heat Seal Machines', qty: 4, category: 'Specialized' },
   ]
 
   // Gallery Photos mapping to DSC photos with realistic RMG descriptions
@@ -92,16 +116,29 @@ function FactoryIndex() {
       
       {/* 1. Dramatic Industrial Hero Section */}
       <section className="relative bg-slate-950 text-white py-32 px-6 md:px-12 overflow-hidden border-b border-amber-500/20">
-        <div className="absolute inset-0 bg-cover bg-center opacity-25" style={{ backgroundImage: "url('/assets/optimized/DSC07793.JPG')" }}></div>
-        <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/80 to-transparent"></div>
+        <div className="absolute inset-0 bg-cover bg-center opacity-40" style={{ backgroundImage: "url('/assets/optimized/DSC07793.JPG')" }}></div>
+        <video
+          className="hero-video absolute inset-0 h-full w-full object-cover"
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="metadata"
+          poster="/assets/optimized/DSC07793.JPG"
+          aria-hidden="true"
+          tabIndex={-1}
+        >
+          <source src="/assets/orient-factory.webm" type="video/webm" />
+        </video>
+        <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/85 to-slate-950/20"></div>
         <div className="max-w-7xl mx-auto relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           <div className="lg:col-span-8 flex flex-col items-start">
             <span className="inline-flex bg-amber-500/10 text-amber-400 border border-amber-500/30 text-xs uppercase tracking-widest px-3 py-1.5 rounded-full mb-6 font-bold">
               ESTABLISHED IN 2011 • RMG MANUFACTURER & EXPORTER
             </span>
-            <h1 className="text-4xl md:text-6xl font-black tracking-tight mb-6 leading-tight uppercase">
-              Precision Engineering <br />
-              <span className="text-amber-400 bg-gradient-to-r from-amber-400 to-amber-500 bg-clip-text text-transparent">For Global Apparel</span>
+            <h1 className="text-4xl md:text-6xl font-black tracking-tight mb-6 leading-tight">
+              Built on Trust. <br />
+              <span className="text-amber-400 bg-gradient-to-r from-amber-400 to-amber-500 bg-clip-text text-transparent">Made for Global Brands.</span>
             </h1>
             <p className="text-base md:text-xl text-slate-300 max-w-2xl mb-8 leading-relaxed">
               Oriental Fashion Ltd. is a premier clothing manufacturer based in Bangladesh. We operate a highly synchronized 54,000 sq. ft. facility, utilizing Japanese and Taiwanese technology to deliver world-class apparel to international markets.
@@ -130,7 +167,7 @@ function FactoryIndex() {
             <span className="text-xs uppercase tracking-wider text-slate-400 font-bold">Skilled Professionals</span>
           </div>
           <div className="text-center md:text-left border-r border-slate-800 last:border-r-0 pr-4">
-            <span className="block text-3xl md:text-4xl font-black text-amber-400">320+</span>
+            <span className="block text-3xl md:text-4xl font-black text-amber-400">431</span>
             <span className="text-xs uppercase tracking-wider text-slate-400 font-bold">High-Performance Machines</span>
           </div>
           <div className="text-center md:text-left">
@@ -204,15 +241,15 @@ function FactoryIndex() {
       <section id="machinery" className="py-24 px-6 md:px-12 max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <span className="text-amber-500 font-black text-xs uppercase tracking-widest block mb-2">TECHNICAL CAPACITY</span>
-          <h3 className="text-3xl md:text-4xl font-black text-slate-900 uppercase tracking-tight">Our 320-Machine Production Matrix</h3>
+          <h3 className="text-3xl md:text-4xl font-black text-slate-900 uppercase tracking-tight">Our 431-Machine Production Matrix</h3>
           <p className="text-slate-500 max-w-xl mx-auto mt-3 text-sm">
-            Featuring state-of-the-art Japanese and Taiwanese machines configured for high-speed apparel assembly.
+            Updated inventory across sewing, cutting, fusing, finishing, quality-control, and utility operations.
           </p>
         </div>
 
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-          {machinery.map((m, i) => (
-            <div key={i} className="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between">
+          {machinery.map((m) => (
+            <div key={m.name} className="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between">
               <div>
                 <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">{m.category}</span>
                 <h4 className="font-extrabold text-slate-900 text-sm mt-1 leading-tight">{m.name}</h4>
