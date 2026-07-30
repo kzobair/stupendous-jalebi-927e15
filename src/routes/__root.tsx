@@ -50,25 +50,25 @@ function RootDocument({ children }: { children: React.ReactNode }) {
           </div>
           
           <nav className="hidden lg:flex items-center gap-6">
-            <Link to="/" className="text-sm font-semibold text-slate-200 hover:text-amber-400 transition-colors">
+            <Link to="/" className="text-sm font-semibold text-white hover:text-white transition-colors">
               Home
             </Link>
-            <a href="#about" className="text-sm font-semibold text-slate-200 hover:text-amber-400 transition-colors cursor-pointer">
+            <a href="#about" className="text-sm font-semibold text-white hover:text-white transition-colors cursor-pointer">
               About Us
             </a>
-            <a href="#infrastructure" className="text-sm font-semibold text-slate-200 hover:text-amber-400 transition-colors cursor-pointer">
+            <a href="#infrastructure" className="text-sm font-semibold text-white hover:text-white transition-colors cursor-pointer">
               Facility Layout
             </a>
-            <a href="#machinery" className="text-sm font-semibold text-slate-200 hover:text-amber-400 transition-colors cursor-pointer">
+            <a href="#machinery" className="text-sm font-semibold text-white hover:text-white transition-colors cursor-pointer">
               Machinery
             </a>
-            <a href="#products" className="text-sm font-semibold text-slate-200 hover:text-amber-400 transition-colors cursor-pointer">
+            <a href="#products" className="text-sm font-semibold text-white hover:text-white transition-colors cursor-pointer">
               Our Products
             </a>
-            <a href="#gallery" className="text-sm font-semibold text-slate-200 hover:text-amber-400 transition-colors cursor-pointer">
+            <a href="#gallery" className="text-sm font-semibold text-white hover:text-white transition-colors cursor-pointer">
               Media Gallery
             </a>
-            <a href="#compliance" className="text-sm font-semibold text-slate-200 hover:text-amber-400 transition-colors cursor-pointer">
+            <a href="#compliance" className="text-sm font-semibold text-white hover:text-white transition-colors cursor-pointer">
               Compliance
             </a>
             <a href="#contact" className="bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold px-4 py-2 rounded-lg text-sm transition-all shadow-md">
@@ -115,13 +115,13 @@ function RootDocument({ children }: { children: React.ReactNode }) {
             </div>
 
             <div>
-              <h5 className="font-semibold text-white mb-4 text-sm uppercase tracking-wider text-amber-400">Quick Navigation</h5>
-              <ul className="flex flex-col gap-2.5 text-sm">
-                <li><a href="#about" className="hover:text-amber-400 transition-colors">About Company</a></li>
-                <li><a href="#infrastructure" className="hover:text-amber-400 transition-colors">Factory Infrastructure</a></li>
-                <li><a href="#machinery" className="hover:text-amber-400 transition-colors">Machinery Matrix</a></li>
-                <li><a href="#products" className="hover:text-amber-400 transition-colors">Garment Range</a></li>
-                <li><a href="#compliance" className="hover:text-amber-400 transition-colors">Compliance & Safety</a></li>
+              <h5 className="font-semibold text-white mb-4 text-sm uppercase tracking-wider">Quick Navigation</h5>
+              <ul className="flex flex-col gap-2.5 text-sm text-white">
+                <li><a href="#about" className="hover:text-white transition-colors">About Company</a></li>
+                <li><a href="#infrastructure" className="hover:text-white transition-colors">Factory Infrastructure</a></li>
+                <li><a href="#machinery" className="hover:text-white transition-colors">Machinery Matrix</a></li>
+                <li><a href="#products" className="hover:text-white transition-colors">Garment Range</a></li>
+                <li><a href="#compliance" className="hover:text-white transition-colors">Compliance & Safety</a></li>
               </ul>
             </div>
 
