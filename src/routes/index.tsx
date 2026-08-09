@@ -2,8 +2,67 @@ import { useState } from 'react'
 import { Link, createFileRoute } from '@tanstack/react-router'
 import products from '@/data/products'
 import { ProductAIAssistant } from '@/components/ProductAIAssistant'
+import {
+  DEFAULT_SOCIAL_IMAGE,
+  SITE_DESCRIPTION,
+  SITE_NAME,
+  SITE_URL,
+  absoluteUrl,
+  organizationSchema,
+} from '@/lib/seo'
 
 export const Route = createFileRoute('/')({
+  head: () => ({
+    meta: [
+      { title: 'Clothing Manufacturer in Bangladesh | Oriental Fashion Ltd' },
+      { name: 'description', content: SITE_DESCRIPTION },
+      {
+        property: 'og:title',
+        content: 'Clothing Manufacturer in Bangladesh | Oriental Fashion Ltd',
+      },
+      { property: 'og:description', content: SITE_DESCRIPTION },
+      { property: 'og:url', content: SITE_URL },
+      { property: 'og:image', content: absoluteUrl(DEFAULT_SOCIAL_IMAGE) },
+      {
+        property: 'og:image:alt',
+        content: 'Oriental Fashion Ltd garment production facility in Bangladesh',
+      },
+      {
+        name: 'twitter:title',
+        content: 'Clothing Manufacturer in Bangladesh | Oriental Fashion Ltd',
+      },
+      { name: 'twitter:description', content: SITE_DESCRIPTION },
+      { name: 'twitter:image', content: absoluteUrl(DEFAULT_SOCIAL_IMAGE) },
+      {
+        'script:ld+json': {
+          '@context': 'https://schema.org',
+          '@graph': [
+            organizationSchema,
+            {
+              '@type': 'WebSite',
+              '@id': `${SITE_URL}/#website`,
+              url: SITE_URL,
+              name: SITE_NAME,
+              description: SITE_DESCRIPTION,
+              publisher: { '@id': `${SITE_URL}/#organization` },
+              inLanguage: 'en',
+            },
+            {
+              '@type': 'WebPage',
+              '@id': `${SITE_URL}/#webpage`,
+              url: SITE_URL,
+              name: 'Clothing Manufacturer in Bangladesh | Oriental Fashion Ltd',
+              description: SITE_DESCRIPTION,
+              isPartOf: { '@id': `${SITE_URL}/#website` },
+              about: { '@id': `${SITE_URL}/#organization` },
+              inLanguage: 'en',
+            },
+          ],
+        },
+      },
+    ],
+    links: [{ rel: 'canonical', href: SITE_URL }],
+  }),
   component: FactoryIndex,
 })
 
@@ -182,10 +241,10 @@ function FactoryIndex() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           <div className="lg:col-span-5 relative">
             <div className="aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl border border-slate-200">
-              <img src="/assets/optimized/DSC07793.JPG" alt="Sewing Division" className="w-full h-full object-cover" />
+              <img src="/assets/optimized/DSC07793.JPG" alt="Garment sewing division at Oriental Fashion Ltd" loading="lazy" className="w-full h-full object-cover" />
             </div>
             <div className="absolute -bottom-6 -right-6 w-48 h-48 rounded-3xl overflow-hidden shadow-2xl border-4 border-white hidden md:block">
-              <img src="/assets/optimized/DSC07805.JPG" alt="Finishing Pressed" className="w-full h-full object-cover" />
+              <img src="/assets/optimized/DSC07805.JPG" alt="Apparel finishing and pressing section at Oriental Fashion Ltd" loading="lazy" className="w-full h-full object-cover" />
             </div>
           </div>
           <div className="lg:col-span-7">
@@ -212,7 +271,7 @@ function FactoryIndex() {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <span className="text-amber-400 font-black text-xs uppercase tracking-widest block mb-2">INFRASTRUCTURE</span>
-            <h3 className="text-3xl md:text-4xl font-black uppercase tracking-tight">Optimized 6-Floor Facility Layout</h3>
+            <h2 className="text-3xl md:text-4xl font-black uppercase tracking-tight">Optimized 6-Floor Facility Layout</h2>
             <p className="text-slate-400 max-w-xl mx-auto mt-3 text-sm">
               Our factory building is approved, compliant, and architecturally planned for optimal batch logistics and linear manufacturing flow.
             </p>
@@ -241,7 +300,7 @@ function FactoryIndex() {
       <section id="machinery" className="py-24 px-6 md:px-12 max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <span className="text-amber-500 font-black text-xs uppercase tracking-widest block mb-2">TECHNICAL CAPACITY</span>
-          <h3 className="text-3xl md:text-4xl font-black text-slate-900 uppercase tracking-tight">Our 431-Machine Production Matrix</h3>
+          <h2 className="text-3xl md:text-4xl font-black text-slate-900 uppercase tracking-tight">Our 431-Machine Production Matrix</h2>
           <p className="text-slate-500 max-w-xl mx-auto mt-3 text-sm">
             Updated inventory across sewing, cutting, fusing, finishing, quality-control, and utility operations.
           </p>
@@ -268,7 +327,7 @@ function FactoryIndex() {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <span className="text-amber-400 font-black text-xs uppercase tracking-widest block mb-2">EXPORT LINES</span>
-            <h3 className="text-3xl md:text-4xl font-black uppercase tracking-tight">Our Manufactured Apparel Range</h3>
+            <h2 className="text-3xl md:text-4xl font-black uppercase tracking-tight">Our Manufactured Apparel Range</h2>
             <p className="text-slate-400 max-w-xl mx-auto mt-3 text-sm">
               Explore the core categories of garments we manufacture for export. Select a category to filter our specialized production lines.
             </p>
@@ -286,6 +345,7 @@ function FactoryIndex() {
               <button
                 key={btn.id}
                 onClick={() => setActiveFilter(btn.id as FilterType)}
+                aria-pressed={activeFilter === btn.id}
                 className={`px-5 py-2.5 rounded-full font-bold text-xs uppercase tracking-wider transition-all duration-300 cursor-pointer shadow-sm ${
                   activeFilter === btn.id
                     ? 'bg-amber-500 text-slate-950 ring-2 ring-amber-500/20'
@@ -311,7 +371,8 @@ function FactoryIndex() {
                 >
                   <img 
                     src={p.image} 
-                    alt={p.name} 
+                    alt={`${p.name} manufactured by Oriental Fashion Ltd`}
+                    loading="lazy"
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                   <span className="absolute top-4 right-4 bg-slate-950/90 text-[10px] font-bold text-amber-400 px-3 py-1 rounded-full shadow-md uppercase tracking-wider border border-slate-800">
@@ -326,9 +387,9 @@ function FactoryIndex() {
                       params={{ productId: p.id.toString() }}
                       className="block"
                     >
-                      <h4 className="font-black text-white text-lg mb-2 group-hover:text-amber-400 transition-colors uppercase">
+                      <h3 className="font-black text-white text-lg mb-2 group-hover:text-amber-400 transition-colors uppercase">
                         {p.name}
-                      </h4>
+                      </h3>
                     </Link>
                     <p className="text-slate-400 text-xs leading-relaxed mb-4">
                       {p.shortDescription}
@@ -359,7 +420,7 @@ function FactoryIndex() {
       <section id="gallery" className="py-24 px-6 md:px-12 max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <span className="text-amber-500 font-black text-xs uppercase tracking-widest block mb-2">FACTORY MEDIA</span>
-          <h3 className="text-3xl md:text-4xl font-black text-slate-900 uppercase tracking-tight">Inside Our Operations</h3>
+          <h2 className="text-3xl md:text-4xl font-black text-slate-900 uppercase tracking-tight">Inside Our Operations</h2>
           <p className="text-slate-500 max-w-xl mx-auto mt-3 text-sm">
             Authentic, real-time snapshots illustrating the layout, quality checks, machinery, and finished output at our Savar factory.
           </p>
@@ -372,6 +433,7 @@ function FactoryIndex() {
                 <img 
                   src={photo.path} 
                   alt={photo.title} 
+                  loading="lazy"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
                 />
               </div>
@@ -435,7 +497,7 @@ function FactoryIndex() {
               We welcome international apparel buyers, retail merchandisers, and third-party inspectors to review our operations in Savar, Dhaka.
             </p>
             <div className="aspect-[4/3] rounded-2xl overflow-hidden mb-6 border border-slate-800 shadow-md">
-              <img src="/assets/optimized/DSC07864.JPG" alt="Safety Gate Compliance" className="w-full h-full object-cover" />
+              <img src="/assets/optimized/DSC07864.JPG" alt="Factory safety gate and compliance infrastructure" loading="lazy" className="w-full h-full object-cover" />
             </div>
             <a href="#contact" className="inline-block bg-amber-500 hover:bg-amber-600 text-slate-950 font-black px-6 py-2.5 rounded-lg text-xs uppercase tracking-wider transition-all">
               Book Inspection Schedule
@@ -450,14 +512,14 @@ function FactoryIndex() {
           <div className="lg:col-span-5 flex flex-col justify-between">
             <div>
               <span className="text-amber-500 font-black text-xs uppercase tracking-widest block mb-3">GET IN TOUCH</span>
-              <h3 className="text-3xl md:text-4xl font-black text-slate-900 uppercase tracking-tight mb-4">Start Your Garment Line Inquiry</h3>
+              <h2 className="text-3xl md:text-4xl font-black text-slate-900 uppercase tracking-tight mb-4">Start Your Garment Line Inquiry</h2>
               <p className="text-slate-600 text-sm leading-relaxed mb-6">
                 Are you an international clothing retailer, a modern brand, or an apparel merchant? Submit your product design, fabrics specification, and volume requirements. Our merchandising team will prepare a custom cost breakdown within 24 hours.
               </p>
             </div>
 
             <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm space-y-4">
-              <h4 className="text-xs font-black text-slate-900 uppercase tracking-wider">Direct Direct Contacts</h4>
+              <h3 className="text-xs font-black text-slate-900 uppercase tracking-wider">Direct Contacts</h3>
               <div className="text-xs text-slate-600 space-y-2">
                 <p><strong className="text-slate-900">Chairman:</strong> Md. Reyazuddin</p>
                 <p><strong className="text-slate-900">Direct Contact:</strong> +8801713008854 / +8801613008854</p>

@@ -1,4 +1,5 @@
-import { Link, createFileRoute } from '@tanstack/react-router'
+import { Link, createFileRoute, notFound } from '@tanstack/react-router'
+import { SITE_NAME, SITE_URL, absoluteUrl } from '../../lib/seo'
 import products from '../../data/products'
 
 export const Route = createFileRoute('/products/$productId')({
@@ -8,9 +9,81 @@ export const Route = createFileRoute('/products/$productId')({
       (product) => product.id === +params.productId,
     )
     if (!product) {
-      throw new Error('Product not found')
+      throw notFound()
     }
     return product
+  },
+  head: ({ loaderData: product }) => {
+    if (!product) return {}
+
+    const productUrl = `${SITE_URL}/products/${product.id}`
+    const title = `${product.name} Manufacturer | ${SITE_NAME}`
+    const description = `${product.shortDescription} Export production capacity: ${product.capacity}. Manufactured by ${SITE_NAME} in Bangladesh.`
+    const image = absoluteUrl(product.image)
+
+    return {
+      meta: [
+        { title },
+        { name: 'description', content: description },
+        { property: 'og:type', content: 'product' },
+        { property: 'og:title', content: title },
+        { property: 'og:description', content: description },
+        { property: 'og:url', content: productUrl },
+        { property: 'og:image', content: image },
+        { property: 'og:image:alt', content: product.name },
+        { name: 'twitter:title', content: title },
+        { name: 'twitter:description', content: description },
+        { name: 'twitter:image', content: image },
+        {
+          'script:ld+json': {
+            '@context': 'https://schema.org',
+            '@graph': [
+              {
+                '@type': 'Product',
+                '@id': `${productUrl}#product`,
+                name: product.name,
+                description: product.description,
+                image: [image],
+                sku: `OFL-${product.id.toString().padStart(3, '0')}`,
+                category: product.category,
+                material: product.materials,
+                url: productUrl,
+                manufacturer: {
+                  '@type': 'Organization',
+                  '@id': `${SITE_URL}/#organization`,
+                  name: SITE_NAME,
+                  url: SITE_URL,
+                },
+              },
+              {
+                '@type': 'BreadcrumbList',
+                itemListElement: [
+                  {
+                    '@type': 'ListItem',
+                    position: 1,
+                    name: 'Home',
+                    item: SITE_URL,
+                  },
+                  {
+                    '@type': 'ListItem',
+                    position: 2,
+                    name: 'Products',
+                    item: `${SITE_URL}/#products`,
+                  },
+                  {
+                    '@type': 'ListItem',
+                    position: 3,
+                    name: product.name,
+                    item: productUrl,
+                  },
+                ],
+              },
+            ],
+          },
+        },
+      ],
+      links: [{ rel: 'canonical', href: productUrl }],
+    }
   },
 })
 
@@ -33,7 +106,7 @@ function RouteComponent() {
             <div className="aspect-square w-full max-w-md overflow-hidden rounded-2xl bg-white shadow-md border border-slate-200">
               <img
                 src={product.image}
-                alt={product.name}
+                alt={`${product.name} manufactured by Oriental Fashion Ltd`}
                 className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
               />
             </div>
@@ -50,7 +123,7 @@ function RouteComponent() {
               
               {/* Technical Specifications Grid */}
               <div className="bg-slate-50 rounded-2xl border border-slate-200 p-6 space-y-4 mb-8">
-                <h4 className="text-sm font-bold text-slate-900 uppercase tracking-wider border-b border-slate-200 pb-2">Technical Specifications</h4>
+                <h2 className="text-sm font-bold text-slate-900 uppercase tracking-wider border-b border-slate-200 pb-2">Technical Specifications</h2>
                 <div className="grid grid-cols-2 gap-4 text-xs">
                   <div>
                     <span className="block text-slate-400 font-bold uppercase">Fabric / Composition</span>

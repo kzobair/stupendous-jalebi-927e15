@@ -1,6 +1,12 @@
 import { Link, createFileRoute } from '@tanstack/react-router'
 
 export const Route = createFileRoute('/checkout/cancel')({
+  head: () => ({
+    meta: [
+      { title: 'Checkout Cancelled | Oriental Fashion Ltd' },
+      { name: 'robots', content: 'noindex, nofollow' },
+    ],
+  }),
   component: CheckoutCancel,
 })
 
