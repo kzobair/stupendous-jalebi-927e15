@@ -71,6 +71,8 @@ type FilterType = 'all' | 'shirts' | 'jackets' | 'polo-knit' | 'kids-ladies'
 function FactoryIndex() {
   const [activeFilter, setActiveFilter] = useState<FilterType>('all')
   const [inquirySubmitted, setInquirySubmitted] = useState(false)
+  const [isSubmittingInquiry, setIsSubmittingInquiry] = useState(false)
+  const [inquiryError, setInquiryError] = useState('')
   const [contactForm, setContactForm] = useState({
     name: '',
     email: '',
@@ -158,15 +160,33 @@ function FactoryIndex() {
 
   const handleFormSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
+    setIsSubmittingInquiry(true)
+    setInquiryError('')
+
     try {
-      await fetch('/contact-form.html', {
+      const response = await fetch('/contact-form.html', {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: encode({ 'form-name': 'oriental-contact', ...contactForm }),
       })
+
+      if (!response.ok) {
+        throw new Error(`Inquiry submission failed with status ${response.status}`)
+      }
+
       setInquirySubmitted(true)
+      setContactForm({
+        name: '',
+        email: '',
+        company: '',
+        subject: 'Bulk Apparel Export Inquiry',
+        message: '',
+      })
     } catch (err) {
       console.error("Form submission failed", err)
+      setInquiryError('We could not send your inquiry. Please try again or contact us directly by email.')
+    } finally {
+      setIsSubmittingInquiry(false)
     }
   }
 
@@ -544,8 +564,20 @@ function FactoryIndex() {
                 </button>
               </div>
             ) : (
-              <form onSubmit={handleFormSubmit} className="space-y-6">
+              <form
+                name="oriental-contact"
+                method="POST"
+                data-netlify="true"
+                data-netlify-honeypot="bot-field"
+                onSubmit={handleFormSubmit}
+                className="space-y-6"
+              >
                 <input type="hidden" name="form-name" value="oriental-contact" />
+                <p className="hidden" aria-hidden="true">
+                  <label>
+                    Do not fill this out: <input name="bot-field" tabIndex={-1} autoComplete="off" />
+                  </label>
+                </p>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                   <div>
@@ -615,10 +647,17 @@ function FactoryIndex() {
 
                 <button 
                   type="submit" 
+                  disabled={isSubmittingInquiry}
                   className="w-full bg-slate-900 hover:bg-slate-850 text-white font-extrabold py-4 rounded-xl transition-all shadow-lg uppercase tracking-widest text-xs"
                 >
-                  Submit Industrial Inquiry
+                  {isSubmittingInquiry ? 'Sending Inquiry...' : 'Submit Industrial Inquiry'}
                 </button>
+
+                {inquiryError && (
+                  <p role="alert" className="text-center text-sm font-semibold text-red-700">
+                    {inquiryError}
+                  </p>
+                )}
               </form>
             )}
           </div>
