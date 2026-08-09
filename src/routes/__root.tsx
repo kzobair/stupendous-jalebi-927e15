@@ -1,5 +1,12 @@
 import { HeadContent, Link, Scripts, createRootRoute } from '@tanstack/react-router'
 
+import {
+  DEFAULT_SOCIAL_IMAGE,
+  SITE_DESCRIPTION,
+  SITE_NAME,
+  SITE_URL,
+  absoluteUrl,
+} from '../lib/seo'
 import '../styles.css'
 
 export const Route = createRootRoute({
@@ -13,8 +20,30 @@ export const Route = createRootRoute({
         content: 'width=device-width, initial-scale=1',
       },
       {
-        title: 'Oriental Fashion Ltd | Ready-Made Garments Manufacturer & Exporter',
+        title: `${SITE_NAME} | Ready-Made Garments Manufacturer & Exporter`,
       },
+      { name: 'description', content: SITE_DESCRIPTION },
+      { name: 'robots', content: 'index, follow, max-image-preview:large' },
+      { property: 'og:site_name', content: SITE_NAME },
+      { property: 'og:type', content: 'website' },
+      { property: 'og:url', content: SITE_URL },
+      {
+        property: 'og:title',
+        content: `${SITE_NAME} | Garments Manufacturer & Exporter`,
+      },
+      { property: 'og:description', content: SITE_DESCRIPTION },
+      { property: 'og:image', content: absoluteUrl(DEFAULT_SOCIAL_IMAGE) },
+      { name: 'twitter:card', content: 'summary_large_image' },
+      {
+        name: 'twitter:title',
+        content: `${SITE_NAME} | Garments Manufacturer & Exporter`,
+      },
+      { name: 'twitter:description', content: SITE_DESCRIPTION },
+      { name: 'twitter:image', content: absoluteUrl(DEFAULT_SOCIAL_IMAGE) },
+    ],
+    links: [
+      { rel: 'icon', href: '/favicon.ico' },
+      { rel: 'sitemap', type: 'application/xml', href: '/sitemap.xml' },
     ],
   }),
   shellComponent: RootDocument,
@@ -53,32 +82,32 @@ function RootDocument({ children }: { children: React.ReactNode }) {
             <Link to="/" className="text-sm font-semibold text-white hover:text-white transition-colors">
               Home
             </Link>
-            <a href="#about" className="text-sm font-semibold text-white hover:text-white transition-colors cursor-pointer">
+            <a href="/#about" className="text-sm font-semibold text-white hover:text-white transition-colors cursor-pointer">
               About Us
             </a>
-            <a href="#infrastructure" className="text-sm font-semibold text-white hover:text-white transition-colors cursor-pointer">
+            <a href="/#infrastructure" className="text-sm font-semibold text-white hover:text-white transition-colors cursor-pointer">
               Facility Layout
             </a>
-            <a href="#machinery" className="text-sm font-semibold text-white hover:text-white transition-colors cursor-pointer">
+            <a href="/#machinery" className="text-sm font-semibold text-white hover:text-white transition-colors cursor-pointer">
               Machinery
             </a>
-            <a href="#products" className="text-sm font-semibold text-white hover:text-white transition-colors cursor-pointer">
+            <a href="/#products" className="text-sm font-semibold text-white hover:text-white transition-colors cursor-pointer">
               Our Products
             </a>
-            <a href="#gallery" className="text-sm font-semibold text-white hover:text-white transition-colors cursor-pointer">
+            <a href="/#gallery" className="text-sm font-semibold text-white hover:text-white transition-colors cursor-pointer">
               Media Gallery
             </a>
-            <a href="#compliance" className="text-sm font-semibold text-white hover:text-white transition-colors cursor-pointer">
+            <a href="/#compliance" className="text-sm font-semibold text-white hover:text-white transition-colors cursor-pointer">
               Compliance
             </a>
-            <a href="#contact" className="bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold px-4 py-2 rounded-lg text-sm transition-all shadow-md">
+            <a href="/#contact" className="bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold px-4 py-2 rounded-lg text-sm transition-all shadow-md">
               Inquire Now
             </a>
           </nav>
 
           {/* Quick Mobile Action Button */}
           <div className="lg:hidden">
-            <a href="#contact" className="bg-amber-500 text-slate-950 font-bold px-3 py-1.5 rounded text-xs transition-all">
+            <a href="/#contact" className="bg-amber-500 text-slate-950 font-bold px-3 py-1.5 rounded text-xs transition-all">
               Inquire
             </a>
           </div>
@@ -115,18 +144,18 @@ function RootDocument({ children }: { children: React.ReactNode }) {
             </div>
 
             <div>
-              <h5 className="font-semibold text-white mb-4 text-sm uppercase tracking-wider">Quick Navigation</h5>
+              <h2 className="font-semibold text-white mb-4 text-sm uppercase tracking-wider">Quick Navigation</h2>
               <ul className="flex flex-col gap-2.5 text-sm text-white">
-                <li><a href="#about" className="hover:text-white transition-colors">About Company</a></li>
-                <li><a href="#infrastructure" className="hover:text-white transition-colors">Factory Infrastructure</a></li>
-                <li><a href="#machinery" className="hover:text-white transition-colors">Machinery Matrix</a></li>
-                <li><a href="#products" className="hover:text-white transition-colors">Garment Range</a></li>
-                <li><a href="#compliance" className="hover:text-white transition-colors">Compliance & Safety</a></li>
+                <li><a href="/#about" className="hover:text-white transition-colors">About Company</a></li>
+                <li><a href="/#infrastructure" className="hover:text-white transition-colors">Factory Infrastructure</a></li>
+                <li><a href="/#machinery" className="hover:text-white transition-colors">Machinery Matrix</a></li>
+                <li><a href="/#products" className="hover:text-white transition-colors">Garment Range</a></li>
+                <li><a href="/#compliance" className="hover:text-white transition-colors">Compliance & Safety</a></li>
               </ul>
             </div>
 
             <div>
-              <h5 className="font-semibold text-white mb-4 text-sm uppercase tracking-wider text-amber-400">Head Office</h5>
+              <h2 className="font-semibold text-white mb-4 text-sm uppercase tracking-wider text-amber-400">Head Office</h2>
               <address className="not-italic text-sm text-slate-400 flex flex-col gap-2 leading-relaxed">
                 <p>House-447, Road-31, Floor-4th,<br />Mohakhali DOHS, Dhaka,<br />Bangladesh.</p>
                 <p className="mt-2 text-amber-400 font-medium">Factory Location:</p>
