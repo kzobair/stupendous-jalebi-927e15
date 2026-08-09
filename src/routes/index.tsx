@@ -130,7 +130,7 @@ function FactoryIndex() {
         >
           <source src="/assets/orient-factory.webm" type="video/webm" />
         </video>
-        <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/85 to-slate-950/20"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-slate-950/70 via-slate-950/45 to-slate-950/5"></div>
         <div className="max-w-7xl mx-auto relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           <div className="lg:col-span-8 flex flex-col items-start">
             <span className="inline-flex bg-amber-500/10 text-amber-400 border border-amber-500/30 text-xs uppercase tracking-widest px-3 py-1.5 rounded-full mb-6 font-bold">
